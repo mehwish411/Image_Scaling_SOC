@@ -24,11 +24,11 @@ This module stores and forwards the incoming pixel (imgmn, imgm1n, imgmn1, imgm1
 ## System Architecture
 ![image](https://github.com/user-attachments/assets/3f18cd74-0e05-46b6-b16c-b91ab7df6975)   
 
-##Workflow: 
+## Workflow: 
 - Input Handling: Pixel values (imgmn, imgm1n, etc.) are fed into REG_BANK for initial processing. 
 - Boundary Computation: AP_design calculates boundary values (left, right, top, bottom) and sends them to area_generator.  
 - Area Calculation: area_generator computes area values (Amn, Am1n, etc.) using multipliers. 
-###Edge Detection and Adjustment:  
+### Edge Detection and Adjustment:  
 - EDGE_CATCH_AREA_TUNE processes area values and applies edge-detection logic. 
 - The resulting image data (out_img) is sent to the output. 
 - Final Outputs: Ready signals (pixel_rdy, etc.) and processed values (pixel_val, etc.) are generated.
