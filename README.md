@@ -5,12 +5,13 @@ This repository contains the design and implementation of a System-on-Chip (SoC)
 ## Modular Design Block Diagram 
 The design of the Image Scaling SoC is divided into modular components, enabling easier integration and debugging. The following modules have been developed:  
 
-![image](https://github.com/user-attachments/assets/78941637-2bd5-405b-a94e-9b4aabad550d)
-**AP_design:** Handles pixel processing and coordinates.
-**area_generator:** Calculates interpolation areas.
-**EDGE_CATCH_AREA_TUNE:** The EDGE_CATCH_AREA_TUNE module compares adjacent pixels to detect edges. When an edge is detected, it adjusts the interpolation areas (Amn, Am1n, etc.) to preserve edge sharpness in the scaled image.
-**MULT/division_processor:** Basic arithmetic operations.
-**REG_BANK:** Manages data storage and flow.
-# Maximum Image Size
+![image](https://github.com/user-attachments/assets/78941637-2bd5-405b-a94e-9b4aabad550d)  
+
+**AP_design:** Handles pixel processing and coordinates.  
+**area_generator:** Calculates interpolation areas.  
+**EDGE_CATCH_AREA_TUNE:** The EDGE_CATCH_AREA_TUNE module compares adjacent pixels to detect edges. When an edge is detected, it adjusts the interpolation areas (Amn, Am1n, etc.) to preserve edge sharpness in the scaled image.  
+**MULT/division_processor:** Basic arithmetic operations.  
+**REG_BANK:** Manages data storage and flow.  
+## Maximum Image Size
 The design uses 16-bit width for image dimensions and pixel values, so theoretically it can handle images up to 65535x65535 pixels, but practical limitations would depend on the target FPGA/ASIC resources.
 #Input Image
