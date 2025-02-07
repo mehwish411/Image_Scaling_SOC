@@ -4,7 +4,8 @@ This repository contains the design and implementation of a System-on-Chip (SoC)
 ## Modular Design Block Diagram 
 The design of the Image Scaling SoC is divided into modular components, enabling easier integration and debugging. The following modules have been developed:  
 
-![image](https://github.com/user-attachments/assets/78941637-2bd5-405b-a94e-9b4aabad550d)  
+![bd](https://github.com/user-attachments/assets/17796d55-cccf-411a-aaad-c7b312709387)
+
 ## Sub Modules
 ### AP_design:
 Performs arithmetic operations on pixel values and determines boundary conditions for image processing. It takes area parameters (sw, sh, tw, th), coordinates (locx, locy), and a start signal as inputs. The outputs include readiness signals (pixel_rdy, pixel_rdy11) and processed pixel values (pixel_val, pixel_val11). Computes boundaries (left_val, right_val, top_val, bttm_val) based on the size parameters. And **Division processing:** Uses multiple instances of division_processor to divide pixel data and produce results. 
@@ -21,7 +22,8 @@ Multiplies two 16-bit numbers and produces the product as output.
 ###REG_BANK: 
 This module stores and forwards the incoming pixel (imgmn, imgm1n, imgmn1, imgm1n1) data to other processing units. The register bank holds pixel data temporarily and passes it forward when ready. It ensures synchronization between input data and downstream processing. 
 ## System Architecture
-![image](https://github.com/user-attachments/assets/3f18cd74-0e05-46b6-b16c-b91ab7df6975)  
+![image](https://github.com/user-attachments/assets/3f18cd74-0e05-46b6-b16c-b91ab7df6975)   
+
 ##Workflow: 
 - Input Handling: Pixel values (imgmn, imgm1n, etc.) are fed into REG_BANK for initial processing. 
 - Boundary Computation: AP_design calculates boundary values (left, right, top, bottom) and sends them to area_generator.  
@@ -33,6 +35,17 @@ This module stores and forwards the incoming pixel (imgmn, imgm1n, imgmn1, imgm1
   
 ![image](https://github.com/user-attachments/assets/e00963e7-5187-4462-a407-e1100c01b942)
 
-## Maximum Image Size
-The design uses 16-bit width for image dimensions and pixel values, so theoretically it can handle images up to 65535x65535 pixels, but practical limitations would depend on the target FPGA/ASIC resources.
-#Input Image
+### Maximum Image Size
+The design uses 16-bit width for image dimensions and pixel values, so theoretically it can handle images up to 65535x65535 pixels, but practical limitations would depend on the target FPGA/ASIC resources.  
+
+## Simulation Result
+![wave](https://github.com/user-attachments/assets/9d604332-c674-47b8-8e1f-c28828401e3e)
+
+## RTL View
+![rtl view](https://github.com/user-attachments/assets/5000dac2-f02c-4883-8606-5028e35003ba)
+
+## Input Image
+![image](https://github.com/user-attachments/assets/4dd33380-3cee-4633-8af8-c782c280893a)
+
+## Output Image
+![image](https://github.com/user-attachments/assets/b6402533-c6b9-42d8-9ed5-5a6d4ea2e9d2)
