@@ -9,7 +9,8 @@ The design of the Image Scaling SoC is divided into modular components, enabling
 ## Sub Modules
 ### AP_design:
 Performs arithmetic operations on pixel values and determines boundary conditions for image processing. It takes area parameters (sw, sh, tw, th), coordinates (locx, locy), and a start signal as inputs. The outputs include readiness signals (pixel_rdy, pixel_rdy11) and processed pixel values (pixel_val, pixel_val11). Computes boundaries (left_val, right_val, top_val, bttm_val) based on the size parameters. And **Division processing:** Uses multiple instances of division_processor to divide pixel data and produce results. 
-### area_generator: Computes areas (Amn, Am1n, Amn1, Am1n1) using the boundary conditions provided by the AP_design module. It takes top, bottom, left, and right boundary values as inputs. The outputs include the computed areas and a ready signal (out_rdy).Uses multipliers (MULT modules) to calculate areas. For example:  
+### area_generator: 
+Computes areas (Amn, Am1n, Amn1, Am1n1) using the boundary conditions provided by the AP_design module. It takes top, bottom, left, and right boundary values as inputs. The outputs include the computed areas and a ready signal (out_rdy).Uses multipliers (MULT modules) to calculate areas. For example:  
 **Top-Left Area (lt) = Top × Left.**   
 **Top-Right Area (tr) = Top × Right.**  
 The results are combined to output the four areas.  
